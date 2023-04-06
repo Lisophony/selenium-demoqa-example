@@ -13,9 +13,14 @@ public class Browser {
         return driver;
     }
 
+    public void goTo(String url) {
+        driver.get(url);
+    }
+
     public void close() {
         if(driver != null) {
             driver.quit();
         }
     }
+    //Add new browser actions here (alerts, screenshots, scrolls etc.)
 }
