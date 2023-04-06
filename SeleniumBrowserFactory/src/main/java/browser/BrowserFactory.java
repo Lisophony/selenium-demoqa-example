@@ -2,6 +2,7 @@ package browser;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.github.bonigarcia.wdm.config.DriverManagerType;
+import org.json.simple.JSONObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -11,8 +12,14 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.safari.SafariOptions;
+import utils.JsonUtil;
+
+import java.util.List;
 
 public class BrowserFactory {
+    private static final JSONObject settings = JsonUtil.getJson("src/main/resources/browserSettings.json");
+    private static final List<String> options = JsonUtil.getArray(settings, "options");
+
     public static WebDriver createDriver(BrowserType type) {
         switch (type) {
             case CHROME -> {
@@ -37,15 +44,13 @@ public class BrowserFactory {
 
     private static ChromeOptions getChromeOptions() {
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--start-maximized");
-        chromeOptions.addArguments("--incognito");
+        chromeOptions.addArguments(options);
         return chromeOptions;
     }
 
     private static FirefoxOptions getFirefoxOptions() {
         FirefoxOptions firefoxOptions = new FirefoxOptions();
-        firefoxOptions.addArguments("--start-maximized");
-        firefoxOptions.addArguments("--incognito");
+        firefoxOptions.addArguments(options);
         return firefoxOptions;
     }
 
@@ -55,10 +60,7 @@ public class BrowserFactory {
 
     private static EdgeOptions getEdgeOptions() {
         EdgeOptions edgeOptions = new EdgeOptions();
-        edgeOptions.addArguments("--start-maximized");
-        edgeOptions.addArguments("--incognito");
+        edgeOptions.addArguments(options);
         return edgeOptions;
     }
-    private static final String keyMaxWin = "start-max";
-    private static final String keyIncognito = "search-mode";
 }
