@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.epam.training.student_elizaveta_fan</groupId>
-    <artifactId>ta_training-java</artifactId>
+    <groupId>org.example</groupId>
+    <artifactId>SeleniumBrowserFactory</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
