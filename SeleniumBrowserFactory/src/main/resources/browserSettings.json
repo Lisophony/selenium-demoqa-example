@@ -1,0 +1,7 @@
+{
+  "browserName" : "chrome",
+  "options" : [
+   "--start-maximized",
+    "--incognito"
+  ]
+}
