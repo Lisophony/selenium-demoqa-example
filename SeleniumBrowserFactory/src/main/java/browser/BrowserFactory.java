@@ -19,6 +19,7 @@ import java.util.List;
 public class BrowserFactory {
     private static final JSONObject settings = JsonUtil.getJson("src/main/resources/browserSettings.json");
     private static final List<String> options = JsonUtil.getArray(settings, "options");
+    private static final String browserSettingsName = settings.get("browserName").toString();
 
     public static WebDriver createDriver(BrowserType type) {
         switch (type) {
@@ -40,6 +41,15 @@ public class BrowserFactory {
             }
             default -> throw new IllegalStateException("Unexpected value in switch: " + type);
         }
+    }
+
+    public static WebDriver createDriver() {
+        for (BrowserType type : BrowserType.values()) {
+            if (type.getBrowserJsonName().equals(browserSettingsName)) {
+                return createDriver(type);
+            }
+        }
+        throw new IllegalStateException("Invalid browser name in json settings file");
     }
 
     private static ChromeOptions getChromeOptions() {
