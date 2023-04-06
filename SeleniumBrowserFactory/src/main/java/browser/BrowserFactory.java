@@ -13,15 +13,6 @@ import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.safari.SafariOptions;
 
 public class BrowserFactory {
-    public enum BrowserType {
-        CHROME("chrome"), FIREFOX("firefox"), EDGE("egde"), SAFARI("safari");
-        private String browserJsonName;
-        BrowserType(String browserName) {
-            browserJsonName = browserName;
-        }
-        String getBrowserJsonName() {return browserJsonName;}
-    }
-
     public static WebDriver createDriver(BrowserType type) {
         switch (type) {
             case CHROME -> {
@@ -44,22 +35,30 @@ public class BrowserFactory {
         }
     }
 
-
-
-    private static SafariOptions getSafariOptions() {
-        return null;
-    }
-
-    private static EdgeOptions getEdgeOptions() {
-        return null;
+    private static ChromeOptions getChromeOptions() {
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--start-maximized");
+        chromeOptions.addArguments("--incognito");
+        return chromeOptions;
     }
 
     private static FirefoxOptions getFirefoxOptions() {
-        return null;
+        FirefoxOptions firefoxOptions = new FirefoxOptions();
+        firefoxOptions.addArguments("--start-maximized");
+        firefoxOptions.addArguments("--incognito");
+        return firefoxOptions;
     }
 
-    private static ChromeOptions getChromeOptions() {
-        return null;
+    private static SafariOptions getSafariOptions() {
+        return new SafariOptions();
     }
 
+    private static EdgeOptions getEdgeOptions() {
+        EdgeOptions edgeOptions = new EdgeOptions();
+        edgeOptions.addArguments("--start-maximized");
+        edgeOptions.addArguments("--incognito");
+        return edgeOptions;
+    }
+    private static final String keyMaxWin = "start-max";
+    private static final String keyIncognito = "search-mode";
 }
