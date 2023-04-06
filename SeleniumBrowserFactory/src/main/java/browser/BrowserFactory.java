@@ -3,7 +3,6 @@ package browser;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.github.bonigarcia.wdm.config.DriverManagerType;
 import org.json.simple.JSONObject;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -21,32 +20,32 @@ public class BrowserFactory {
     private static final List<String> options = JsonUtil.getArray(settings, "options");
     private static final String browserSettingsName = settings.get("browserName").toString();
 
-    public static WebDriver createDriver(BrowserType type) {
+    public static Browser getBrowser(BrowserType type) {
         switch (type) {
             case CHROME -> {
                 WebDriverManager.getInstance(DriverManagerType.CHROME).setup();
-                return new ChromeDriver(getChromeOptions());
+                return new Browser(new ChromeDriver(getChromeOptions()));
             }
             case FIREFOX -> {
                 WebDriverManager.getInstance(DriverManagerType.FIREFOX).setup();
-                return new FirefoxDriver(getFirefoxOptions());
+                return new Browser(new FirefoxDriver(getFirefoxOptions()));
             }
             case EDGE -> {
                 WebDriverManager.getInstance(DriverManagerType.EDGE).setup();
-                return new EdgeDriver(getEdgeOptions());
+                return new Browser(new EdgeDriver(getEdgeOptions()));
             }
             case SAFARI -> {
                 WebDriverManager.getInstance(DriverManagerType.SAFARI).setup();
-                return new SafariDriver(getSafariOptions());
+                return new Browser(new SafariDriver(getSafariOptions()));
             }
             default -> throw new IllegalStateException("Unexpected value in switch: " + type);
         }
     }
 
-    public static WebDriver createDriver() {
+    public static Browser getBrowser() {
         for (BrowserType type : BrowserType.values()) {
             if (type.getBrowserJsonName().equals(browserSettingsName)) {
-                return createDriver(type);
+                return getBrowser(type);
             }
         }
         throw new IllegalStateException("Invalid browser name in json settings file");

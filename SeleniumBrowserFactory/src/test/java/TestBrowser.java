@@ -1,4 +1,5 @@
 import browser.Browser;
+import browser.BrowserFactory;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -9,7 +10,7 @@ public class TestBrowser {
     Browser browser;
     @BeforeMethod
     public void setup() {
-        browser = new Browser();
+        browser = BrowserFactory.getBrowser();
     }
 
     @AfterMethod

@@ -1,14 +1,12 @@
 package browser;
+
 import org.openqa.selenium.WebDriver;
 
 public class Browser {
     private final WebDriver driver;
 
-    public Browser(BrowserType browserType) {
-        driver = BrowserFactory.createDriver(browserType);
-    }
-    public Browser () {
-        driver = BrowserFactory.createDriver();
+    public Browser(WebDriver driver) {
+        this.driver = driver;
     }
 
     public WebDriver getDriver() {
