@@ -1,7 +1,10 @@
 {
   "browserName" : "chrome",
   "options" : [
-   "--start-maximized",
+    "--start-maximized",
     "--incognito"
-  ]
+  ],
+  "timeouts" : {
+    "timeoutPageToLoad" : 10
+  }
 }
