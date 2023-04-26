@@ -1,3 +1,4 @@
 {
-  "url" : "https://demoqa.com/"
+  "url" : "https://demoqa.com/",
+  "alert-msg" : "You clicked a button"
 }

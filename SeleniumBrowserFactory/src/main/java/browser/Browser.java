@@ -42,6 +42,10 @@ public class Browser {
         return getAlert().getText();
     }
 
+    public void acceptAlert() {
+        getAlert().accept();
+    }
+
     public Alert getAlert() {
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
         return wait.until(ExpectedConditions.alertIsPresent());
