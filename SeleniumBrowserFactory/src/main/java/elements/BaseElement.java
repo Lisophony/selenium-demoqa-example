@@ -43,7 +43,7 @@ public class BaseElement {
     }
 
     public By getLocator() {
-        return null;
+        return locator;
     }
 
     public String getText() {
