@@ -47,6 +47,6 @@ public class BaseElement {
     }
 
     public String getText() {
-        return null;
+        return BrowserManager.getBrowser().getDriver().findElement(locator).getText();
     }
 }

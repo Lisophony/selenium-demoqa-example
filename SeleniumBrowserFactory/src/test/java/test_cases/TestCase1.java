@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import page_objects.AlertsForm;
 import page_objects.MainPage;
 import page_objects.MenuPage;
+import utils.RandomUtil;
 
 public class TestCase1 extends BaseTest {
     @Test
@@ -45,5 +46,19 @@ public class TestCase1 extends BaseTest {
         String actualConfirmResultMessage = alertsForm.getConfirmResultText();
         String expectedConfirmResultMessage = testData.get("accept-confirm-alert-msg").toString();
         Assert.assertEquals(actualConfirmResultMessage, expectedConfirmResultMessage, "Confirm alert result does not match");
+
+        System.out.println("STEP 7: Open prompt alert");
+        alertsForm.clickOnPromptAlert();
+        Assert.assertTrue(browser.isAlertPresent(), "Prompt alert did not open");
+        String actualPromptAlertMessage = browser.getAlertText();
+        String expectedPromptAlertMessage = testData.get("prompt-alert-msg").toString();
+        Assert.assertEquals(actualPromptAlertMessage, expectedPromptAlertMessage, "Unexpected prompt alert message");
+
+        System.out.println("STEP 8. Enter random text and accept alert");
+        String promptText = RandomUtil.generateAlphabetic(10);
+        browser.sendKeysInPromptAlert(promptText);
+        browser.acceptAlert();
+        String actualPromptAlertResult = alertsForm.getPromptResultText();
+        Assert.assertTrue(actualPromptAlertResult.contains(promptText), "Entered prompt text does not match");
     }
 }

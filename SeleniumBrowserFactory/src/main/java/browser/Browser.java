@@ -46,6 +46,10 @@ public class Browser {
         getAlert().accept();
     }
 
+    public void sendKeysInPromptAlert(String text) {
+        getAlert().sendKeys(text);
+    }
+
     public Alert getAlert() {
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
         return wait.until(ExpectedConditions.alertIsPresent());

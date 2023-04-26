@@ -2,5 +2,6 @@
   "url" : "https://demoqa.com/",
   "alert-msg" : "You clicked a button",
   "confirm-alert-msg" : "Do you confirm action?",
-  "accept-confirm-alert-msg" : "You selected Ok"
+  "accept-confirm-alert-msg" : "You selected Ok",
+  "prompt-alert-msg" : "Please enter your name"
 }
