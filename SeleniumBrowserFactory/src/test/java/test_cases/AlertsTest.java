@@ -7,9 +7,9 @@ import page_objects.MainPage;
 import page_objects.MenuPage;
 import utils.RandomUtil;
 
-public class TestCase1 extends BaseTest {
+public class AlertsTest extends BaseTest {
     @Test
-    public void test1() {
+    public void testAlerts() {
         System.out.println("STEP 1. Open main Page");
         browser.goTo(testData.get("url").toString());
         MainPage mainPage = new MainPage();
