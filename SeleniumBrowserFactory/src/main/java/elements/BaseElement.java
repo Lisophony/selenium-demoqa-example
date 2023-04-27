@@ -24,7 +24,7 @@ public class BaseElement {
     }
 
     protected WebElement find() {
-        return null;
+        return BrowserManager.getBrowser().getDriver().findElement(locator);
     }
 
     public boolean exists() {
