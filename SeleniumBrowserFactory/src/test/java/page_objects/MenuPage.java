@@ -7,9 +7,11 @@ import org.openqa.selenium.By;
 public class MenuPage extends BasePage {
     private final String formsLoc = "//div[contains(@class,'accordion')]//span[contains(@class,'text') and contains(text(),'%s')]";
     public enum Form {
-        ALERTS("Alerts");
+        ALERTS("Alerts"),
+        WEBTABLES("Web Tables");
 
         final String formName;
+
         Form(String formName) {
             this.formName = formName;
         }
