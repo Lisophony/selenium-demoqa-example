@@ -3,5 +3,9 @@
   "alert-msg" : "You clicked a button",
   "confirm-alert-msg" : "Do you confirm action?",
   "accept-confirm-alert-msg" : "You selected Ok",
-  "prompt-alert-msg" : "Please enter your name"
+  "prompt-alert-msg" : "Please enter your name",
+  "user-data" : [
+    ["Anna", "Smith", "annsmith@gmail.com", "29", "66666", "hell"],
+    ["Sasha","Ivanova", "sashaiva@gmail.com", "13", "100000", "Nails"]
+  ]
 }

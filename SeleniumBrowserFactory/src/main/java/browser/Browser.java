@@ -1,12 +1,16 @@
 package browser;
 
+import elements.BaseElement;
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Browser {
     private final WebDriver driver;
@@ -48,6 +52,15 @@ public class Browser {
 
     public void sendKeysInPromptAlert(String text) {
         getAlert().sendKeys(text);
+    }
+
+    public <T extends BaseElement> List<T> findElements(By locator, Class<T> clazz) {
+        List<T> elements = new ArrayList<>();
+        int number = driver.findElements(locator).size();
+        for(int i = 1; i <= number; ++i) {
+
+        }
+        return null;
     }
 
     public Alert getAlert() {

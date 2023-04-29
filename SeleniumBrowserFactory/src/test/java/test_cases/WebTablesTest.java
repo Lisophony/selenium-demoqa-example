@@ -1,7 +1,8 @@
 package test_cases;
 
-import org.checkerframework.checker.units.qual.C;
+import org.json.simple.JSONArray;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import page_objects.MainPage;
 import page_objects.MenuPage;
@@ -9,8 +10,20 @@ import page_objects.RegistrationForm;
 import page_objects.WebTablesForm;
 
 public class WebTablesTest extends BaseTest {
-    @Test
-    public void testWebTables() {
+    @DataProvider
+    public Object[][] userData() {
+        JSONArray userData = ((JSONArray) testData.get("user-data"));
+        Object[][] data = new Object[userData.size()][((JSONArray) userData.get(0)).size()];
+        for(int i = 0; i < userData.size(); ++i) {
+            for (int j = 0; j <  ((JSONArray) userData.get(0)).size(); ++j) {
+                data[i][j] = ((JSONArray) userData.get(i)).get(j);
+            }
+        }
+        return data;
+    }
+
+    @Test(dataProvider = "userData")
+    public void testWebTables(String firstName, String lastName, String email, String age, String salary, String department) {
         System.out.println("STEP 1. Open main Page");
         browser.goTo(testData.get("url").toString());
         MainPage mainPage = new MainPage();
@@ -25,5 +38,8 @@ public class WebTablesTest extends BaseTest {
 
         System.out.println("STEP 3 : Open registration form");
         RegistrationForm registrationForm = webTablesForm.switchToRegistrationForm();
+        registrationForm.enterData(firstName, lastName, email, age, salary, department);
+        registrationForm.submit();
+        System.out.println(webTablesForm.getRowText());
     }
 }
