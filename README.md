@@ -1,1 +1,1 @@
-# ta_training-java
+# Selenium demoqa example
