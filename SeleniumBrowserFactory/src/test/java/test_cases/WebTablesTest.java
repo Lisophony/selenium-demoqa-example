@@ -1,5 +1,6 @@
 package test_cases;
 
+import models.User;
 import org.json.simple.JSONArray;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
@@ -40,6 +41,15 @@ public class WebTablesTest extends BaseTest {
         RegistrationForm registrationForm = webTablesForm.switchToRegistrationForm();
         registrationForm.enterData(firstName, lastName, email, age, salary, department);
         registrationForm.submit();
-        System.out.println(webTablesForm.getRowText());
+
+        User expectedUser = new User(firstName, lastName, age, email, salary, department);
+        User actualUser = webTablesForm.getLastUserFromTable();
+        Assert.assertEquals(actualUser, expectedUser, "Users do not match");
+        webTablesForm.deleteLastRecord();
+
+        System.out.println("STEP 4 : Delete new user record from table");
+        webTablesForm.deleteLastRecord();
+        User lastTableUser = webTablesForm.getLastUserFromTable();
+        Assert.assertNotEquals(lastTableUser, expectedUser, "User record was not deleted");
     }
 }
