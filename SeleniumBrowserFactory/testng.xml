@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true"
+          name="/home/kanstancin/Desktop/selenium/Selenium framework/SeleniumBrowserFactory/src/test/java/test_cases">
+        <classes>
+            <class name="test_cases.AlertsTest">
+                <methods>
+                    <include name="testAlerts"/>
+                </methods>
+            </class>
+            <class name="test_cases.TestIFrames">
+                <methods>
+                    <include name="testIFrames"/>
+                </methods>
+            </class>
+            <class name="test_cases.WebTablesTest">
+                <methods>
+                    <include name="testWebTables"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
