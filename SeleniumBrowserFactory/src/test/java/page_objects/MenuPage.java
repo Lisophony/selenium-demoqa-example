@@ -8,7 +8,8 @@ public class MenuPage extends BasePage {
     private final String formsLoc = "//div[contains(@class,'accordion')]//span[contains(@class,'text') and contains(text(),'%s')]";
     public enum Form {
         ALERTS("Alerts"),
-        WEBTABLES("Web Tables");
+        WEBTABLES("Web Tables"),
+        FRAMES("Frames");
 
         final String formName;
 
