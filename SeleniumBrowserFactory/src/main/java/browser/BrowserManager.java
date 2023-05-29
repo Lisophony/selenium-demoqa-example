@@ -8,4 +8,8 @@ public class BrowserManager {
             return browserInstance;
         return browserInstance = BrowserFactory.getBrowser();
     }
+
+    public static void clearBrowserInstance() {
+        browserInstance = null;
+    }
 }

@@ -31,6 +31,7 @@ public class Browser {
         if(driver != null) {
             driver.quit();
         }
+        BrowserManager.clearBrowserInstance();
     }
     //Add new browser actions here (alerts, screenshots, scrolls etc.)
     public boolean isAlertPresent() {
