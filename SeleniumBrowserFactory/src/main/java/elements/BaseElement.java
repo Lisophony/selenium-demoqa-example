@@ -23,7 +23,7 @@ public class BaseElement {
         return null;
     }
 
-    protected WebElement find() {
+    public WebElement find() {
         return BrowserManager.getBrowser().getDriver().findElement(locator);
     }
 
