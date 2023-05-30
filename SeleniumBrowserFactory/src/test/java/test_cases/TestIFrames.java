@@ -33,7 +33,19 @@ public class TestIFrames extends BaseTest {
 
         System.out.println("STEP 6 : Navigate to Frames form");
         menuPage.openForm(MenuPage.Form.FRAMES);
-        FramesForm framesForm = new FramesForm();
+        FramesPage framesPage = new FramesPage();
+        Assert.assertTrue(framesPage.isPageOpen(), "Frames page was not open");
 
+        System.out.println("STEP 7 :Switch to iframe1 and get text from heading");
+        Frame1Form frame1Form = framesPage.switchToFrame1();
+        Assert.assertTrue(frame1Form.isPageOpen(), "Driver has not switched to Frames1 form");
+        String frame1FormHeading = frame1Form.getHeadingText();
+
+        System.out.println("STEP 8 :Switch to iframe2 and get text from heading");
+        browser.switchToDefaultContent();
+        Frame2Form frame2Form = framesPage.switchToFrame2();
+        Assert.assertTrue(frame2Form.isPageOpen(), "Driver has not switched to Frames2 form");
+        String frame2FormHeading = frame2Form.getHeadingText();
+        Assert.assertEquals(frame1FormHeading, frame2FormHeading, "Frames heading do not match");
     }
 }

@@ -45,5 +45,5 @@ This test case shows how to switch between iframes.
 | 4. Switch to child iframe form                                                                               | Driver has been switched to Child frame. Lable "Child frame" can be found by WebDriver   |
 | 5. Switch to default page                                                                                    | NestedFrames page is open                                                                |
 | 6. Navigate to Frames page by selecting "Frames" from the menu                                               | Frames form is open                                                                      |
-| 7. Switch to iframe1 and get text of the iframe1                                                             | WebDriver has been switched to iframem1                                                  |
+| 7. Switch to iframe1 and get text of the iframe1                                                             | WebDriver has been switched to iframe1                                                   |
 | 8. Switch to default page and then to iframe2. Get text of the iframe2. Switch to default page again         | Frames page is open. Text from iframe1 and iframe2 matches                               |
