@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import page_objects.*;
 
 public class TestIFrames extends BaseTest {
-    @Test
+    @Test(priority = 2)
     public void testIFrames() {
         System.out.println("STEP 1. Open main Page");
         browser.goTo(testData.get("url").toString());

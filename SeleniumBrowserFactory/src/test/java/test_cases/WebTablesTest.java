@@ -23,7 +23,7 @@ public class WebTablesTest extends BaseTest {
         return data;
     }
 
-    @Test(dataProvider = "userData")
+    @Test(dataProvider = "userData", priority = 1)
     public void testWebTables(String firstName, String lastName, String email, String age, String salary, String department) {
         System.out.println("STEP 1. Open main Page");
         browser.goTo(testData.get("url").toString());
