@@ -45,7 +45,6 @@ public class WebTablesTest extends BaseTest {
         User expectedUser = new User(firstName, lastName, age, email, salary, department);
         User actualUser = webTablesForm.getLastUserFromTable();
         Assert.assertEquals(actualUser, expectedUser, "Users do not match");
-        webTablesForm.deleteLastRecord();
 
         System.out.println("STEP 4 : Delete new user record from table");
         webTablesForm.deleteLastRecord();
