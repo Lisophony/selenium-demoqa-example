@@ -2,6 +2,7 @@ package browser;
 
 import elements.BaseElement;
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -72,5 +73,11 @@ public class Browser {
 
     public void switchToDefaultContent() {
         driver.switchTo().defaultContent();
+    }
+
+    public void waitUntil (ExpectedCondition<?> expectedCondition) {
+//        LogUtils.makeLog("Waiting for expected condition: " + condition);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(expectedCondition);
     }
 }
