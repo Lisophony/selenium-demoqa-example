@@ -56,3 +56,4 @@ buildNumber.properties
 *.iws
 
 *.jpeg
+*.log
