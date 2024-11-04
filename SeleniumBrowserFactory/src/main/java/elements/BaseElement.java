@@ -16,7 +16,7 @@ public class BaseElement {
 
 
     public String getAttribute(final String attributeName) {
-       return null;
+       return BrowserManager.getBrowser().getDriver().findElement(locator).getAttribute(attributeName);
     }
 
     public Dimension getSize() {
