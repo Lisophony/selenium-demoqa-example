@@ -47,3 +47,16 @@ This test case shows how to switch between iframes.
 | 6. Navigate to Frames page by selecting "Frames" from the menu                                               | Frames form is open                                                                      |
 | 7. Switch to iframe1 and get text of the iframe1                                                             | WebDriver has been switched to iframe1                                                   |
 | 8. Switch to default page and then to iframe2. Get text of the iframe2. Switch to default page again         | Frames page is open. Text from iframe1 and iframe2 matches                               |
+
+### 4 Test DatePicker
+Test date picker example
+
+| Test steps                                                                                        | Expected result                                          |
+|---------------------------------------------------------------------------------------------------|----------------------------------------------------------|
+| Navigate to main page                                                                             | Main page is open                                        |
+| Navigate to DatePicker page by clicking on card "Widgets" and Selecting "DatePicker" section      | DatePicker Page is open. Date and DateTime are correct   |
+| Open calendar by clicking on DateTime field and select nearest February, 29th using arrow buttons | Calendar is open. Nearest February 29th date is selected |
+
+
+
+
