@@ -7,5 +7,10 @@
   "user-data" : [
     ["Anna", "Smith", "annsmith@gmail.com", "29", "66666", "hell"],
     ["Sasha","Ivanova", "sashaiva@gmail.com", "13", "100000", "Nails"]
-  ]
+  ],
+  "time-12" : "h:mm a",
+  "date-format-2" : "MMMM d, yyyy",
+  "feb-29" : "February 29th",
+  "feb" : "February",
+  "num-29" : "29"
 }

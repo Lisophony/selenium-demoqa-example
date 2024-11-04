@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 public class MainPage extends BasePage {
     String cardsLoc = "//div[contains(@class,'top')]//h5[contains(text(),'%s')]";
     public enum Cards {
-        ELEMENTS("Elements"), ALERTS("Alerts");
+        ELEMENTS("Elements"), ALERTS("Alerts"), WIDGETS("Widgets");
 
         final String cardName;
 
